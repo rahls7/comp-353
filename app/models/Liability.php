@@ -10,7 +10,7 @@ class Liability
     
     public function getUserLiabilities($ccn) {
         $DBConn = new DBConnection();
-        $query = "SELECT * FROM Liability WHERE client_id = (SELECT client_id FROM Client where client_card_number = '$ccn')";
+        $query = "SELECT * FROM Liability WHERE client_id = (SELECT client_id FROM Client where card_number = '$ccn')";
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
         $stmt->setFetchMode (PDO::FETCH_CLASS , 'Liability');        

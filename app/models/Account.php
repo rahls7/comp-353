@@ -10,7 +10,7 @@ class Account
     
     public function getUserAccounts($ccn) {
         $DBConn = new DBConnection();
-        $query = "SELECT * FROM Account WHERE client_id = (SELECT client_id FROM Client where client_card_number = '$ccn')";
+        $query = "SELECT * FROM Account WHERE client_id = (SELECT client_id FROM Client where card_number = '$ccn')";
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
         $stmt->setFetchMode (PDO::FETCH_CLASS , 'Account');        

@@ -12,13 +12,13 @@ class Client
 	public $phone_number;
     public $category;
     public $branch_id;
-    public $client_card_number;
+    public $card_number;
 	public $password;
     
     public function getData($field, $ccn) {
         $DBConn = new DBConnection();
         
-        $query = "SELECT $field FROM Client WHERE client_card_number = '$ccn'";        
+        $query = "SELECT $field FROM Client WHERE card_number = '$ccn'";        
         
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
@@ -35,7 +35,7 @@ class Client
     public function addClient($first_name, $last_name, $email, $password, $date_of_birth, $address, $phone_number, $branch_id) {
         $DBConn = new DBConnection();
         
-        $query = "INSERT INTO Client (first_name, last_name, client_card_number, email, password, date_of_birth, join_date, address, phone_number, branch_id) VALUES ($first_name, $last_name, $email, $password, $date_of_birth, " . NOW() . " $address, $phone_number, $branch_id)";        
+        $query = "INSERT INTO Client (first_name, last_name, card_number, email, password, date_of_birth, join_date, address, phone_number, branch_id) VALUES ($first_name, $last_name, $email, $password, $date_of_birth, " . NOW() . " $address, $phone_number, $branch_id)";        
         
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
@@ -44,7 +44,7 @@ class Client
     public function deleteClient($ccn) {
         $DBConn = new DBConnection();
         
-        $query = "DELETE FROM Client WHERE Client_Card_Number = $ccn";        
+        $query = "DELETE FROM Client WHERE card_number = $ccn";        
         
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
