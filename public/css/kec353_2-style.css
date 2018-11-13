@@ -1,0 +1,83 @@
+#main {
+    position: relative;
+}
+
+/** Default navbars **/
+
+.navbar-top {
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #000;
+}
+
+#menuBar {
+    font-size: 80%;
+}
+
+@media only screen and (max-width: 768px) {
+    #main .navbar-nav {
+        display: block;
+    }
+    
+    #main #menuBar li {
+        display: block;
+        float: left;
+        padding: 0 10px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+
+    #main .nav-item {
+        display: block;
+        float: left;
+    }
+}
+
+.breadcrumbs {
+    margin: 10px auto;
+    list-style-type: none;
+}
+
+.breadcrumbs li {
+    display: inline-block;
+}
+
+.breadcrumbs a {
+    color: #000;
+    font-size: 80%;
+    text-transform: capitalize;
+}
+
+.signUp {
+    
+}
+
+
+
+/** Footer **/
+.footer {
+
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 120px;
+    line-height: 60px; /* Vertically center the text there */
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    bottom: -150px;
+    text-align: center;
+}
+
+.footer .social-icon {
+    color: rgb(0, 101, 255);
+}
+
+.footer .social-icon:hover {
+    text-decoration: none;
+    color: rgba(0, 101, 255, 0.8);
+}
+
+.footer p {
+    line-height: 0;
+}
