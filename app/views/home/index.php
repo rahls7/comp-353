@@ -2,7 +2,7 @@
 <head>
 	<title>Bank Name</title>
     <!-- <?php include '/../includes/head.php'; ?> -->
-		<?php include("{$_SERVER['DOCUMENT_ROOT']}/comp-353/app/views/includes/head.php"); ?>
+		<?php include("{$_SERVER['DOCUMENT_ROOT']}/app/views/includes/head.php"); ?>
 
 </head>
 <body>
