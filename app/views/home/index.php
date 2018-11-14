@@ -10,33 +10,43 @@
 	global $errorMessage;
 ?>
 <div id="main">
-    <div class="container">
-        <div class="w-100 h-100">
-            <div class="float-right mb-1">
-                <span>Not a member?</span>
-                <button type="submit" name="signUp" class="btn btn-primary" href="/UserRegistration/signUp">Sign Up</button>
-            </div>
-            <div class="card w-100 text-center">
-                <div class="card-body">
-                    <h5 class="card-title">Bank Name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Bank Slogan</h6>
+	<div class="valign-wrapper row login-box">
+		<div class="col card hoverable s10 pull-s1 m6 pull-m3 l4 pull-l4">
 
-                    <?php echo $errorMessage; ?>
-                    <form method="post" action="/public/home/validate">
-                        <div class="form-group">
-                            <label for="ccn">Client Card Number</label>
-                            <input type="text" name="ccn" />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" name="password" />
-                        </div>
-                        <button type="submit" name="login" class="btn btn-primary">Log In</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="card-content">
+			<div class="row">
+			  <?php echo $errorMessage; ?>
+				<form class="col s12" method="POST" action="/public/home/validate">
+					<div class="row">
+						<div class="input-field col s12 center">
+							<h4><em>Bank of Canada</em></h4>
+							<img src="https://techflourish.com/images/money-cliparts-15.jpg" alt="" height="100" width="120" >
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="card_number" name="ccn" type="text" class="validate">
+							<label for="card_number">Card Number</label>
+						</div>
+					</div>
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="password" name="password" type="password" class="validate">
+							<label for="password">Password</label>
+						</div>
+					</div>
+					<button class="btn waves-effect waves-light" type="submit" name="login">Submit
+						<i class="material-icons right"></i>
+					</button>
+					<div class="float-right mb-1">
+							<span>Not a member?</span>
+							<button type="submit" name="signUp" class="btn btn-primary" href="/UserRegistration/signUp">Sign Up</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 </div>
 </body>
 </html>
