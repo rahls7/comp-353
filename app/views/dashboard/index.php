@@ -1,13 +1,11 @@
 <html>
 <head>
     <title></title>
-    <!-- <?php include '/../includes/head.php'; ?> -->
-    <?php include("{$_SERVER['DOCUMENT_ROOT']}/comp-353/app/views/includes/header.php"); ?>
+    <?php include("{$_SERVER['DOCUMENT_ROOT']}/app/views/includes/header.php"); ?>
 </head>
 <body>
     <div id="main">
-        <!-- <?php include '/../includes/header.php'; ?> -->
-        <?php include("{$_SERVER['DOCUMENT_ROOT']}/comp-353/app/views/includes/header.php"); ?>
+      <?php include "{$_SERVER['DOCUMENT_ROOT']}/app/views/includes/head.php"; ?>
         <div class="container">
 
             <div class="jumbotron bg-primary d-flex">
