@@ -9,14 +9,14 @@ class Home extends Controller
 		$user = $this->model('Client');
 		$user->name = $name;
 		
-		$this->view('Home', ['name' => $user->name]);
+		$this->view('home', ['name' => $user->name]);
 	}
     
     public function logout() {
         session_start();
         session_unset();
         session_destroy();
-        return header("Location: /public/Home");
+        return header("Location: /public/home");
     }
 	
 	public function validate() {
@@ -37,7 +37,7 @@ class Home extends Controller
 		}
 		else
 			$errorMessage = "Please fill both fields";
-		return header("Location: /public/Home");
+		return header("Location: /public/home");
 				
 	}
 }
