@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>! Style Your Own CANVAS :)!</title>
+    <script>
+        function validate() {
+            switch (document.getElementById('textInput').value) {
+                case("General Form"):
+                    document.getElementById('selectedElement').value="general";
+                    break;
+                case("Title"):
+                    document.getElementById('selectedElement').value="title";
+                    break;
+                case("User Name Text Box"):
+                    document.getElementById('selectedElement').value="username";
+                    break;
+                case("Password Text Box"):
+                    document.getElementById('selectedElement').value="password";
+                    break;
+                case("Submit Button"):
+                    document.getElementById('selectedElement').value="submit";
+                    break;
+                default:
+                    document.getElementById('selectedElement').value="";
+                    alert("You are setting an undefined element it will do nothing :( !!!");
+            }
+        }
+        function showSlider(){
+        document.getElementById('fontSizeV').innerHTML = 'Font Size ' + document.getElementById('slider').value+ ' px:';
+        }
+    </script>
+    <style>
+        aside{
+            float: left;
+            padding-right: 2px;
+            border-right: thick groove darkgreen;
+        }
+        input[type~=text],select{
+            min-width: 200px;
+            width: 10%;
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="">
+    <div id="titleDescription">
+        <h1>Instructions:</h1>
+        <ol type="1">
+            <li>Pick An Element To Style For The Text Input</li>
+            <li>Move The <strong>Slider</strong> To Set The FONT SIZE</li>
+            <li>Click The <strong>Color Picker</strong> To Set The COLOR (if element not text than background)</li>
+            <li><strong>Checkbox</strong> Defines Additional CONTROLS</li>
+        </ol>
+        <p>Unspecified Elements are set as default</p>
+    </div>
+    <aside id="ElementPicker">
+        <select id="selectedElement" name="elements" size="5">
+            <option value="general">General Form</option>
+            <option value="title">Title</option>
+            <option value="username">User Name Text Box</option>
+            <option value="password">Password Text Box</option>
+            <option value="submit">Submit Button</option>
+        </select>
+        <br />
+        <input id="textInput" type="text" list="element" onfocusout="validate()">
+        <datalist id="element">
+            <option value="General Form">
+            <option value="Title">
+            <option value="User Name Text Box">
+            <option value="Password Text Box">
+            <option value="Submit Button">
+        </datalist>
+    </aside>
+    <fieldset>
+        <legend>CONTROLS</legend>
+        <label for="slider" id="fontSizeV">Font Size 15 px:</label><br/>
+        <input name="font" id="slider" type="range" min="10" max="20" onchange="showSlider()" />
+        <br/>
+        <label>Color:<br/>
+            <input name="color" type="color" />
+        </label>
+        <br/>
+        <input type="checkbox" id="vis" name="visible" checked /><label for="vis">Visible</label>
+    </fieldset>
+    <input id="add" name = "submit" type="submit" value="add specs" />
+    <input id="process" name="submit" type= "submit" value="render page" />
+</form>
