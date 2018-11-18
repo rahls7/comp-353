@@ -11,13 +11,13 @@ class App
 	{
 		$url = $this->parseURL();
 
-		if(isset($url[2]) && file_exists($_SERVER['DOCUMENT_ROOT']. "/app/controllers/" . $url[2] . ".php"))
+		if(isset($url[2]) && file_exists($_SERVER['DOCUMENT_ROOT']. "/comp-353/app/controllers/" . $url[2] . ".php"))
 		{
 			$this->controller = $url[2];
 			unset($url[2]);
 		}
 
-		require_once $_SERVER['DOCUMENT_ROOT']. "/app/controllers/" . $this->controller . ".php";
+		require_once $_SERVER['DOCUMENT_ROOT']. "/comp-353/app/controllers/" . $this->controller . ".php";
 		
 		$this->controller = new $this->controller;
 		

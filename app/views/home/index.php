@@ -2,7 +2,7 @@
 <head>
 	<title>Bank Name</title>
     <!-- <?php include '/../includes/head.php'; ?> -->
-		<?php include("{$_SERVER['DOCUMENT_ROOT']}/app/views/includes/head.php"); ?>
+		<?php include("{$_SERVER['DOCUMENT_ROOT']}/comp-353/app/views/includes/head.php"); ?>
 
 </head>
 <body>
@@ -16,7 +16,7 @@
 		<div class="card-content">
 			<div class="row">
 			  <?php echo $errorMessage; ?>
-				<form class="col s12" method="POST" action="/public/home/validate">
+				<form class="col s12" method="POST" action="/comp-353/public/home/validate">
 					<div class="row">
 						<div class="input-field col s12 center">
 							<h4><em>Bank of Canada</em></h4>
