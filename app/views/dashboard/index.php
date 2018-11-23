@@ -9,7 +9,7 @@
         <div class="container">
 
             <div class="jumbotron bg-primary d-flex">
-                <h1 class="p-8">Welcome, <?php echo'name'; ?>!</h1>
+                <h1 class="p-8">Welcome, <?php echo $data['name']; ?>!</h1>
                 <div class="p-4">
                 <a class="btn btn-primary btn-lg  d-block" href="#" role="button">Make a Payment</a>
                 <a class="btn btn-primary btn-lg  d-block" href="#" role="button">Transfer Money</a>
