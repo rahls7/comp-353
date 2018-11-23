@@ -23,6 +23,24 @@ class Account
         else
             return $accounts;
     }
+
+    public function updateBalance($amount, $ccn, $recieverField ,$recieverValue, $accountType) {
+        if ($recieverValue != '') {
+            $DBConn = new DBConnection();
+            $query = "UPDATE Account SET balance = (balance + $amount) WHERE client_id = (SELECT client_id FROM Client WHERE $recieverField = '$recieverEmail' AND account_type ='chequing');";
+
+            $query .= "UPDATE Account SET balance = (balance - $amount) WHERE client_id =(SELECT client_id FROM Client WHERE card_number = '$ccn' AND account_type = '$accountType');";
+            $stmt = $DBConn->connection->prepare($query);
+            $stmt->execute();
+
+        } else {
+            $DBConn = new DBConnection();
+
+            $query = "UPDATE Account SET balance = (balance - $amount) WHERE client_id = (SELECT client_id FROM Client WHERE card_number = '$ccn' AND account_type = '$accountType')";
+            $stmt = $DBConn->connection->prepare($query);
+            $stmt->execute();
+        }
+    }
 }
 
 ?>
