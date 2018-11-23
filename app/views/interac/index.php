@@ -31,6 +31,22 @@
         <h2>Send money by Email</h2>
         <form class="col s12" method="POST" action="/public/interac/send">
 
+                            <div class="row">
+                    <label>Payment Type</label>
+
+					  <div class="input-field col s12">
+
+                        <select name="payment-type" class="browser-default">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="chequing">Chequing Account</option>
+
+                        </select>
+                    </div>
+
+                </div>
+
+
 					<div class="row">
 						<div class="input-field col s12">
 							<input id="email" name="email" type="email" class="validate">

@@ -23,9 +23,11 @@ class Interac extends Controller{
             $recieverValue= $email;
             $amount = $_POST['amount'];
             $ccn = $_SESSION['ccn'];
+            $accountType = $_POST['payment-type'];
             $accounts = $this->model('Account')->getUserAccounts($ccn);
+            // This check doesnt work. Figure out a way to display errorMessage
             foreach ($accounts as $account) {
-                if ($account->account_type == 'chequing') {
+                if ($account->account_type == $accountType) {
                     if($amount > $account->balance) {
                         $errorMessage = 'Insufficient funds';
                     }
@@ -34,12 +36,12 @@ class Interac extends Controller{
             $reciever = $this->model('Client')->getUser('email_address', $email);
             $sender = $this->model('Client')->getUser('card_number', $ccn);
             if ($reciever) {
-                $this->model('Account')->updateBalance($amount, $ccn, $recieverField, $recieverValue, 'chequing');
+                $this->model('Account')->updateBalance($amount, $ccn, $recieverField, $recieverValue, $accountType);
                 
                 $this->model('Transaction')->addTransaction($sender->client_id, $amount, 'withdraw');
                 $this->model('Transaction')->addTransaction($reciever->client_id, $amount, 'depostit');
             } else {
-                $this->model('Account')->updateBalance($amount, $ccn, '', '','chequing');
+                $this->model('Account')->updateBalance($amount, $ccn, '', '',$accountType);
                 $this->model('Transaction')->addTransaction($sender->client_id, $amount, 'withdraw');
 
             }
