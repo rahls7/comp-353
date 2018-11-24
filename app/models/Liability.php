@@ -17,11 +17,19 @@ class Liability
         $liabilities = [];
 		while($record = $stmt->fetch()){
 			$liabilities[] = $record;
-		}
+        }
+
         if(empty($liabilities))
             return "";
         else
             return $liabilities;
+    }
+
+    public function updateLiability($ccn,$to, $amount) {
+        $DBConn = new DBConnection();
+        $query = "UPDATE Liability SET credit_limit = (credit_limit + $amount) WHERE client_id = (SELECT client_id FROM Client where card_number = '$ccn') AND type = '$to';";
+        $stmt = $DBConn->connection->prepare($query);
+        $stmt->execute();
     }
 }
 

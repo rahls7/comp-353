@@ -29,17 +29,35 @@
         <div>
         <h2>Transfer Money</h2>
         <form class="col s12" method="POST" action="/public/transfer/send">
+
+                            <div class="row">
+                    <label>From</label>
+
+					  <div class="input-field col s12">
+
+                        <select name="from" class="browser-default">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="savings">Savings Account</option>
+                        <option value="chequing">Chequing Account</option>
+                        </select>
+                    </div>
+
+                </div>
                     <div class="row">
-                    <label>Payment Type</label>
+                    <label>To</label>
 
 					  <div class="input-field col s12">
 
                         <select name="payment-type" class="browser-default">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="savings">Savings Account</option>
-                        <option value="credit_card">Credit Card</option>
-                        <option value="line_credit">Line of Credit</option>
-                        <option value="mortgage">Mortgage</option>
+                        <option value="chequing">Chequing Account</option>
+                        <?php
+            foreach ($data['to'] as $to) {
+                echo '<option value="' .$to->type. '">'.$to->type.'</option>';
+
+            }
+        ?>
                         </select>
                     </div>
 
