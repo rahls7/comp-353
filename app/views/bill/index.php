@@ -26,9 +26,11 @@
             }
         ?>
         </h6>
+        <br>
+        <br>
         <div class="row">
             <div class="col s12">
-            <ul class="tabs">
+            <ul class="tabs tabs-fixed-width">
             <li class="tab col s3"><a class="active" href="#test1">Pay Liability</a></li>
             <li class="tab col s3"><a  href="#test2">Add New Bill</a></li>
 
