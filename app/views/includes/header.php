@@ -3,7 +3,7 @@
 <div>
   <nav>
     <div class="nav-wrapper">
-    <a href="#" class="brand-logo"> <img src="https://techflourish.com/images/money-cliparts-15.jpg" alt="" height="60" width="60">Bank of Canada</a>
+    <a href="/public/dashboard" class="brand-logo"> <img src="https://techflourish.com/images/money-cliparts-15.jpg" alt="" height="60" width="60">Bank of Canada</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
     <li><a href="#account">Accounts</a></li>
     <li><a href="/public/bill">Pay Bill</a></li>
