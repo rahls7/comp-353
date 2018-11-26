@@ -31,6 +31,22 @@ class Client
         else
              return $data;
     }
+
+    public function getUser($field, $value) {
+        $DBConn = new DBConnection();
+        $query = "SELECT * from Client WHERE $field = '$value'";
+        $stmt = $DBConn->connection->prepare($query);
+        $stmt->execute();
+        
+        $stmt->setFetchMode (PDO::FETCH_CLASS , 'Client');
+        $data = $stmt->fetch();
+
+        if(empty($data))
+            return "";
+        else
+             return $data;
+
+    }
     
     public function addClient($first_name, $last_name, $email, $password, $date_of_birth, $address, $phone_number, $branch_id) {
         $DBConn = new DBConnection();
