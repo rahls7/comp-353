@@ -7,13 +7,14 @@ class Account
     public $interest_rate_id;
 	public $account_type;
     public $client_id;
-    
-    public function getUserAccounts($ccn) {
+
+    public function getUserAccounts($client_id) {
+			echo $client_id;
         $DBConn = new DBConnection();
-        $query = "SELECT * FROM Account WHERE client_id = (SELECT client_id FROM Client where card_number = '$ccn')";
+        $query = "SELECT * FROM Account WHERE client_id = '$client_id';";
         $stmt = $DBConn->connection->prepare($query);
         $stmt->execute();
-        $stmt->setFetchMode (PDO::FETCH_CLASS , 'Account');        
+        $stmt->setFetchMode (PDO::FETCH_CLASS , 'Account');
         $accounts = [];
 		while($record = $stmt->fetch()){
 			$accounts[] = $record;
