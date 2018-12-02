@@ -12,7 +12,8 @@
                 <h1 class="p-8">Welcome, <?php echo $data['name']; ?>!</h1>
                 <div class="p-4">
                 <a class="btn btn-primary btn-lg  d-block" href="#" role="button">Make a Payment</a>
-                <a class="btn btn-primary btn-lg  d-block" href="#" role="button">Transfer Money</a>
+                <a class="btn btn-primary btn-lg  d-block" href="/public/transfer" role="button">Transfer Money</a>
+                <a class="btn btn-primary btn-lg  d-block" href="/public/interac" role="button">Interac</a>
                     </div>
             </div>
 
